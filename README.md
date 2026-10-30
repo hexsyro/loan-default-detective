@@ -8,7 +8,6 @@ This project uses a public lending dataset (loan amount, interest rate, installm
 
 ![ROC curves for the six classifiers on the held-out test set](outputs/figures/roc_curves.png)
 
-
 ## 🎯 Project Questions
 
 - Which classifier best predicts loan default, and by which metric (accuracy isn't enough here — defaults are rare)?
@@ -28,15 +27,15 @@ This project uses a public lending dataset (loan amount, interest rate, installm
 
 All numbers below are on the same held-out test set (203,154 loans, 19.5% defaults), using a stratified 80/20 split. The baseline predicts "no default" for every loan.
 
-| Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
-|---|---|---|---|---|---|
-| Random Forest | 0.662 | 0.316 | 0.632 | 0.421 | 0.709 |
-| Logistic Regression | 0.664 | 0.316 | 0.619 | 0.418 | 0.704 |
-| SVM | 0.667 | 0.317 | 0.612 | 0.418 | 0.704 |
-| KNN | 0.806 | 0.541 | 0.019 | 0.037 | 0.696 |
-| Naive Bayes | 0.711 | 0.329 | 0.462 | 0.384 | 0.664 |
-| Decision Tree | 0.619 | 0.281 | 0.615 | 0.386 | 0.662 |
-| *Baseline: always "no default"* | *0.805* | *n/a* | *0.000* | *n/a* | *0.500* |
+| Model                           | Accuracy | Precision | Recall  | F1    | ROC-AUC |
+| ------------------------------- | -------- | --------- | ------- | ----- | ------- |
+| Random Forest                   | 0.662    | 0.316     | 0.632   | 0.421 | 0.709   |
+| Logistic Regression             | 0.664    | 0.316     | 0.619   | 0.418 | 0.704   |
+| SVM                             | 0.667    | 0.317     | 0.612   | 0.418 | 0.704   |
+| KNN                             | 0.806    | 0.541     | 0.019   | 0.037 | 0.696   |
+| Naive Bayes                     | 0.711    | 0.329     | 0.462   | 0.384 | 0.664   |
+| Decision Tree                   | 0.619    | 0.281     | 0.615   | 0.386 | 0.662   |
+| _Baseline: always "no default"_ | _0.805_  | _n/a_     | _0.000_ | _n/a_ | _0.500_ |
 
 ---
 
@@ -103,8 +102,17 @@ pip install -r requirements.txt
    python -m src.preprocess
    ```
 3. **Explore in notebooks**, in order, starting with `notebooks/01_load_explore.ipynb`
+   | Notebook | Open |
+   |---|---|
+   | 01 Load and explore | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/01_load_explore.ipynb) |
+   | 02 Preprocess and split | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/02_preprocess_split.ipynb) |
+   | 03 Linear and logistic regression | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/03_linear_logistic_regression.ipynb) |
+   | 04 Trees and forests | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/04_trees_forests.ipynb) |
+   | 05 SVM, KNN and Naive Bayes | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/05_svm_knn_naive_bayes.ipynb) |
+   | 06 Model comparison and evaluation | [![Open in Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/hexsyro/loan-default-detective/blob/main/notebooks/06_model_comparison_evaluation.ipynb) |
 
 4. **Train and evaluate the classifiers**
+
    ```bash
    python -m src.train
    python -m src.evaluate
@@ -116,13 +124,13 @@ pip install -r requirements.txt
 
 ## 📊 Skills Practiced
 
-| Skill | Where |
-|---|---|
-| Linear regression | `notebooks/03` |
-| Logistic regression | `notebooks/03` |
-| Decision trees, random forests | `notebooks/04` |
-| Support vector machines | `notebooks/05` |
-| k-nearest neighbors, Naive Bayes | `notebooks/05` |
+| Skill                                                        | Where                             |
+| ------------------------------------------------------------ | --------------------------------- |
+| Linear regression                                            | `notebooks/03`                    |
+| Logistic regression                                          | `notebooks/03`                    |
+| Decision trees, random forests                               | `notebooks/04`                    |
+| Support vector machines                                      | `notebooks/05`                    |
+| k-nearest neighbors, Naive Bayes                             | `notebooks/05`                    |
 | Model evaluation (accuracy, precision/recall, ROC-AUC, RMSE) | `src/evaluate.py`, `notebooks/06` |
 
 ---
